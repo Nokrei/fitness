@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+.nav__links {
+  display: flex;
+  list-style-type: none;
+  text-decoration: none;
+}
+.nav__links li + li {
+  padding-left: 1em;
+}
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+}
+.content--wide {
+  margin-top: 7em;
+  margin-left: 24.4em;
+  margin-right: 8em;
+  text-align: justify;
+}
+.content--narrow {
+  margin-top: 7em;
+  margin-left: 2em;
+  margin-right: 2em;
+  text-align: justify;
+}
+.toolbar__desc{
+  margin-top: -1.65em !important;
+  margin-left: 0.8em !important
+  
+}
+.input--narrow{
+  margin-left:0 !important
+}
+
