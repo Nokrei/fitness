@@ -149,13 +149,14 @@ const Bmr = () => {
       </FormControl>
       <div className={classes.root} noValidate autoComplete="off">
         <TextField
+          className={inputClass}
           id="standard-basic"
           label="Height in cm"
           type="number"
-          style={{ marginLeft: "0" }}
           inputRef={(comp) => (heightField = comp)}
         />
         <TextField
+          className={inputClass}
           id="standard-basic"
           label="Weight in kg"
           type="number"
