@@ -84,7 +84,7 @@ function ResponsiveDrawer(props) {
     window !== undefined ? () => window().document.body : undefined;
   
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>

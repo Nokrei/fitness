@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import AppContext from "./AppContext";
 import { Route, Link } from "react-router-dom";
-import SideBar from './SideBar'
+import SideBar from './SideBar';
+import Footer from './Footer'
 const LayoutRoute =(props)=>{
     return(
         <React.Fragment>
@@ -19,11 +20,14 @@ const LayoutRoute =(props)=>{
             
         ]}
         />
+        
          <Route
           path={props.path}
           exact={props.exact}
           component={props.component}
         />
+        <Footer />
+         
         </React.Fragment>
         
         
