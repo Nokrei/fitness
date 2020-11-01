@@ -8,7 +8,7 @@ const Faq = () => {
   const [contentClass, setContentClass] = useState("");
   const [inputClass, setInputClass] = useState("");
   useEffect(() => {
-    if (width > 800) {
+    if (width > 600) {
       setContentClass("content--wide");
       setInputClass("input--wide");
     } else {

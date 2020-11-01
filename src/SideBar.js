@@ -74,7 +74,7 @@ function ResponsiveDrawer(props) {
   const { width } = useWindowDimensions();
   const [toolbarClass, setToolbarClass] = useState("");
   useEffect(() => {
-    if (width > 800) {
+    if (width > 600) {
       setToolbarClass("toolbar--wide");
     } else {
       setToolbarClass("toolbar--narrow");
