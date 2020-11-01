@@ -7,7 +7,7 @@ const InfoScreen = () => {
 
   const [contentClass, setContentClass] = useState("");
   useEffect(() => {
-    if (width > 500) {
+    if (width > 800) {
       setContentClass("content--wide");
     } else {
       setContentClass("content--narrow");

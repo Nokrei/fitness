@@ -84,9 +84,10 @@ body {
   margin-left:0 !important
 }
 .meal{
-  width:30.5em;
-  display:flex;
-  justify-content: space-between;
+  width:32em;
+  display:grid;
+  grid-template-columns:2fr 2fr 1fr
+  
 }
 
 

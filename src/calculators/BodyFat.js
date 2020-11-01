@@ -17,7 +17,7 @@ const BodyFat = () => {
   const [contentClass, setContentClass] = useState("");
   const [inputClass, setInputClass] = useState("");
   useEffect(() => {
-    if (width > 500) {
+    if (width > 800) {
       setContentClass("content--wide");
       setInputClass("input--wide");
     } else {

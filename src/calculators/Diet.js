@@ -21,7 +21,7 @@ const Diet = () => {
   const [contentClass, setContentClass] = useState("");
   const [inputClass, setInputClass] = useState("");
   useEffect(() => {
-    if (width > 500) {
+    if (width > 800) {
       setContentClass("content--wide");
       setInputClass("input--wide");
     } else {
@@ -50,7 +50,7 @@ const Diet = () => {
   let gramField;
   const meals = [
     {
-      name: "Choose Meal",
+      name: "",
       protein: 0,
       fat: 0,
       carbs: 0,
@@ -174,7 +174,7 @@ const Diet = () => {
   return (
     <div className={contentClass}>
       <Typography variant="h5">Diet Calculator</Typography>
-      <Typography variant="body1">
+      <Typography variant="body1" >
         Use this calculator to estimate the calories and macronutriets of your
         meals.
       </Typography>
@@ -195,7 +195,7 @@ const Diet = () => {
           }}
           options={meals}
           getOptionLabel={(option) => option.name}
-          style={{ width: "15em" }}
+          
           renderInput={(params) => (
             <TextField {...params} label="Choose Meal" variant="outlined" />
           )}
@@ -204,7 +204,7 @@ const Diet = () => {
           label="Grams"
           type="number"
           variant="outlined"
-          style={{ width: "10em" }}
+          
           inputRef={(comp) => (gramField = comp)}
         />
         <Button
@@ -218,7 +218,7 @@ const Diet = () => {
       </div>
         <br/>
         <br/>
-      <TableContainer component={Paper} style={{maxWidth:'40em'}}>
+      <TableContainer component={Paper} style={{maxWidth:'32em'}}>
         <Table className={classes.table} aria-label="simple table" >
           <TableHead>
             <TableRow >
@@ -227,7 +227,7 @@ const Diet = () => {
               <TableCell align="right">Fat&nbsp;(g)</TableCell>
               <TableCell align="right">Carbs&nbsp;(g)</TableCell>
               <TableCell align="right">Protein&nbsp;(g)</TableCell>
-              <TableCell align="right">Grams</TableCell>
+              
             </TableRow>
           </TableHead>
           <TableBody>
@@ -240,7 +240,7 @@ const Diet = () => {
                 <TableCell align="right">{row.fat}</TableCell>
                 <TableCell align="right">{row.carbs}</TableCell>
                 <TableCell align="right">{row.protein}</TableCell>
-                <TableCell align="right">{row.gram}</TableCell>
+                
               </TableRow>
             ))}
             <TableRow hover>
@@ -257,9 +257,7 @@ const Diet = () => {
               <TableCell align="right">
                 {rows.map((row) => row.protein).reduce((a, b) => a + b, 0)}
               </TableCell>
-              <TableCell align="right">
-                {rows.map((row) => row.gram).reduce((a, b) => a + b, 0)}
-              </TableCell>
+              
             </TableRow>
           </TableBody>
         </Table>
