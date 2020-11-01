@@ -15,7 +15,7 @@ const Exercise = () => {
   const [contentClass, setContentClass] = useState("");
   const [inputClass, setInputClass] = useState("");
   useEffect(() => {
-    if (width > 800) {
+    if (width > 500) {
       setContentClass("content--wide");
       setInputClass("input--wide");
     } else {
@@ -51,7 +51,7 @@ const Exercise = () => {
       ...state,
       name: event.target.value,
     });
-    console.log(event.target.value);
+    
   };
   //Array of activties
   const activities = [
@@ -139,12 +139,12 @@ const Exercise = () => {
         errors: [],
       });
     }
-    console.log(state.name);
+    
   };
   return (
     <div className={contentClass}>
       <Typography variant="h5">Exercise Calorie Burn</Typography>
-      <Typography variant="body1" wrap>
+      <Typography variant="body1" >
         Use this calculator to estimate how many calories you will burn for any
         activity.
       </Typography>

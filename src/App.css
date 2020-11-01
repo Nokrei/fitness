@@ -1,6 +1,7 @@
 html,
 body {
   height: 100%;
+  
 }
 
 #root {
@@ -71,12 +72,21 @@ body {
   margin-right: 2em;
   text-align: justify;
 }
-.toolbar__desc{
-  margin-top: -1.65em !important;
+.toolbar--wide{
+  margin-top: -1.65em !important ;
   margin-left: 0.8em !important
-  
+}
+.toolbar--narrow{
+  margin-top: -1.21em !important ;
+  margin-left: 0.8em !important
 }
 .input--narrow{
   margin-left:0 !important
 }
+.meal{
+  width:30.5em;
+  display:flex;
+  justify-content: space-between;
+}
+
 

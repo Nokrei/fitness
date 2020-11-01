@@ -8,7 +8,7 @@ const LayoutRoute =(props)=>{
         <React.Fragment>
             <SideBar
         links={[
-            {label: 'Info', path: 'infoscreen'},
+            {label: 'INFO', path: 'infoscreen'},
             {label: 'FAQ', path: 'faq'},
 
         ]}
@@ -17,6 +17,7 @@ const LayoutRoute =(props)=>{
             {label: 'BMR', path: 'bmr'},
             {label: 'Body Fat', path: 'bodyfat'},
             {label: 'Exercise', path: 'exercise'},
+            {label: 'Diet', path:'diet'}
             
         ]}
         />

@@ -12,7 +12,7 @@ const Bmi = () => {
   const [contentClass, setContentClass] = useState("");
   const [inputClass, setInputClass] = useState("");
   useEffect(() => {
-    if (width > 800) {
+    if (width > 500) {
       setContentClass("content--wide");
       setInputClass("input--wide");
     } else {
@@ -94,7 +94,7 @@ const Bmi = () => {
       <Typography variant="h5" noWrap>
         BMI
       </Typography>
-      <Typography variant="body1" wrap>
+      <Typography variant="body1" >
         Body mass index &#40;BMI&#41; is a value derived from the mass
         &#40;weight&#41; and height of a person. The BMI is defined as the body
         mass divided by the square of the body height, and is universally

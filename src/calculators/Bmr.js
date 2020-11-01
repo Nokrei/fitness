@@ -17,7 +17,7 @@ const Bmr = () => {
   const [contentClass, setContentClass] = useState("");
   const [inputClass, setInputClass] = useState("");
   useEffect(() => {
-    if (width > 800) {
+    if (width > 500) {
       setContentClass("content--wide");
       setInputClass("input--wide");
     } else {
@@ -115,7 +115,7 @@ const Bmr = () => {
   return (
     <div className={contentClass}>
       <Typography variant="h5">BMR</Typography>
-      <Typography variant="body1" wrap>
+      <Typography variant="body1" >
         Basal metabolic rate (BMR) is often used interchangeably with resting
         metabolic rate (RMR). While BMR is a minimum number of calories required
         for basic functions at rest, RMR — also called resting energy

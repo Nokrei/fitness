@@ -17,7 +17,7 @@ const BodyFat = () => {
   const [contentClass, setContentClass] = useState("");
   const [inputClass, setInputClass] = useState("");
   useEffect(() => {
-    if (width > 800) {
+    if (width > 500) {
       setContentClass("content--wide");
       setInputClass("input--wide");
     } else {
@@ -131,7 +131,7 @@ const BodyFat = () => {
   return (
     <div className={contentClass}>
       <Typography variant="h5">Body Fat</Typography>
-      <Typography variant="body1" wrap>
+      <Typography variant="body1" >
         The body fat percentage (BFP) of a human or other living being is the
         total mass of fat divided by total body mass, multiplied by 100; body
         fat includes essential body fat and storage body fat. Essential body fat

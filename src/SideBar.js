@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
@@ -7,6 +7,7 @@ import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
+import AppContext from "./AppContext";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -16,8 +17,10 @@ import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import WbIncandescentTwoToneIcon from '@material-ui/icons/WbIncandescentTwoTone';
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-
+import useWindowDimensions from "./useWindowDimensions";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -54,6 +57,29 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ResponsiveDrawer(props) {
+  const [globalState, setGlobalState] = useContext(AppContext);
+  const handleDark = () => {
+    globalState.mode === "light"
+      ? setGlobalState({
+          ...globalState,
+          mode: "dark",
+          on:'on'
+        })
+      : setGlobalState({
+          mode: "light",
+          on:'off'
+        });
+    
+  };
+  const { width } = useWindowDimensions();
+  const [toolbarClass, setToolbarClass] = useState("");
+  useEffect(() => {
+    if (width > 500) {
+      setToolbarClass("toolbar--wide");
+    } else {
+      setToolbarClass("toolbar--narrow");
+    }
+  }, [width]);
   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
@@ -66,11 +92,13 @@ function ResponsiveDrawer(props) {
   const drawer = (
     <div>
       <div className={classes.toolbar} />
-      <Typography className="toolbar__desc" variant="h6" noWrap>Calculators</Typography> 
+      <Typography className={toolbarClass} variant="h6" noWrap>
+        Calculators
+      </Typography>
       <Divider />
       <List>
         {props.sideLinks.map((entry, index) => (
-          <Link className="nav-link" to={entry.path}>
+          <Link key={index} className="nav-link" to={entry.path}>
             <ListItem button key={entry.label}>
               <ListItemText primary={entry.label} />
             </ListItem>
@@ -82,9 +110,9 @@ function ResponsiveDrawer(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
-  
+
   return (
-    <div className={classes.root} >
+    <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
@@ -101,9 +129,9 @@ function ResponsiveDrawer(props) {
             <ul className="nav__links">
               {
                 // loop through links
-                props.links.map((entry) => (
+                props.links.map((entry, index) => (
                   // for every link, generate an 'li'
-                  <li className="topNav__links">
+                  <li key={index} className="topNav__links">
                     <Link className="nav-link" to={entry.path}>
                       {entry.label}
                     </Link>
@@ -113,6 +141,13 @@ function ResponsiveDrawer(props) {
             </ul>
           </Typography>
         </Toolbar>
+        <Button
+          onClick={handleDark}
+          variant="text"
+          style={{ position: "absolute", right: "1em", top: "1.25em" }}
+        >
+          <WbIncandescentTwoToneIcon/>
+        </Button>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
@@ -149,7 +184,5 @@ function ResponsiveDrawer(props) {
     </div>
   );
 }
-
-
 
 export default ResponsiveDrawer;
