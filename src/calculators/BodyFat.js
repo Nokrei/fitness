@@ -177,7 +177,7 @@ const BodyFat = () => {
           id="standard-basic"
           label="Abdominal"
           type="number"
-          style={{ marginLeft: "0" }}
+          
           inputRef={(comp) => (abdominalField = comp)}
         />
         <TextField
