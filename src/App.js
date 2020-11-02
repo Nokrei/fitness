@@ -17,11 +17,12 @@ import { blue, red, orange, green, black } from "@material-ui/core/colors";
 const App = () => {
   const [globalState, setGlobalState] = useState({
     mode: "light",
-    on:'off'
+    on:'off',
+    fontSize: 18
   });
   const theTheme = createMuiTheme({
     typography: {
-      htmlFontSize: 18,
+      htmlFontSize: globalState.fontSize,
     },
     palette: {
       type: globalState.mode,

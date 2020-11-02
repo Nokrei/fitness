@@ -83,6 +83,14 @@ body {
 .input--narrow{
   margin-left:0 !important
 }
+.table--wide{
+  max-width: 32em;
+  overflow-y: scroll;
+}
+.table--narrow{
+  max-width:32em;
+  overflow-y: scroll ;
+}
 .meal{
   width:32em;
   display:grid;

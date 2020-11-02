@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import AppContext from '../AppContext';
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import Typography from "@material-ui/core/Typography";
@@ -15,26 +16,31 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
 const Diet = () => {
+  const [globalState, setGlobalState] = useContext(AppContext)
   // Handle window size
   const { width } = useWindowDimensions();
 
   const [contentClass, setContentClass] = useState("");
   const [inputClass, setInputClass] = useState("");
+  const [tableStyle, setTableStyle] = useState({maxWidth:'32em'});
   useEffect(() => {
     if (width > 600) {
       setContentClass("content--wide");
       setInputClass("input--wide");
+      setTableStyle({maxWidth:'32em'});
+      setGlobalState({...globalState, fontSize:18})
     } else {
       setContentClass("content--narrow");
       setInputClass("input--narrow");
-    }
+      setTableStyle({...tableStyle, overflowY:'scroll'});
+      setGlobalState({...globalState, fontSize:22})
+    } console.log(globalState.fontSize);
   }, [width]);
 
   // Code for table
   const useStyles = makeStyles({
     table: {
       minWidth: 250,
-      
     },
   });
 
@@ -168,13 +174,12 @@ const Diet = () => {
     });
 
     setRows((rows) => [...rows, calc]);
-    
   };
 
   return (
     <div className={contentClass}>
       <Typography variant="h5">Diet Calculator</Typography>
-      <Typography variant="body1" >
+      <Typography variant="body1">
         Use this calculator to estimate the calories and macronutriets of your
         meals.
       </Typography>
@@ -195,7 +200,6 @@ const Diet = () => {
           }}
           options={meals}
           getOptionLabel={(option) => option.name}
-          
           renderInput={(params) => (
             <TextField {...params} label="Choose Meal" variant="outlined" />
           )}
@@ -204,7 +208,6 @@ const Diet = () => {
           label="Grams"
           type="number"
           variant="outlined"
-          
           inputRef={(comp) => (gramField = comp)}
         />
         <Button
@@ -216,18 +219,17 @@ const Diet = () => {
           <Typography variant="h4">+</Typography>
         </Button>
       </div>
-        <br/>
-        <br/>
-      <TableContainer component={Paper} style={{maxWidth:'32em'}}>
-        <Table className={classes.table} aria-label="simple table" >
+      <br />
+      <br />
+      <TableContainer component={Paper} style={tableStyle}>
+        <Table className={classes.table} aria-label="simple table">
           <TableHead>
-            <TableRow >
+            <TableRow>
               <TableCell>Meal</TableCell>
               <TableCell align="right">Calories</TableCell>
               <TableCell align="right">Fat&nbsp;(g)</TableCell>
               <TableCell align="right">Carbs&nbsp;(g)</TableCell>
               <TableCell align="right">Protein&nbsp;(g)</TableCell>
-              
             </TableRow>
           </TableHead>
           <TableBody>
@@ -240,7 +242,6 @@ const Diet = () => {
                 <TableCell align="right">{row.fat}</TableCell>
                 <TableCell align="right">{row.carbs}</TableCell>
                 <TableCell align="right">{row.protein}</TableCell>
-                
               </TableRow>
             ))}
             <TableRow hover>
@@ -257,7 +258,6 @@ const Diet = () => {
               <TableCell align="right">
                 {rows.map((row) => row.protein).reduce((a, b) => a + b, 0)}
               </TableCell>
-              
             </TableRow>
           </TableBody>
         </Table>
