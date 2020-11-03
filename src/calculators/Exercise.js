@@ -100,6 +100,117 @@ const Exercise = () => {
       name: "running, fast",
       met: 14.5,
     },
+    {
+      id: 10,
+      name: "dancing, slow",
+      met: 3.0,
+    },
+    {
+      id: 11,
+      name: "dancing, normal",
+      met: 7.8,
+    },
+    {
+      id: 12,
+      name: "dancing, fast, competetive",
+      met: 11.3,
+    },
+    {
+      id: 13,
+      name: "basketball, general",
+      met: 6.5,
+    },
+    {
+      id: 14,
+      name: "basketball, game",
+      met: 8.0,
+    },
+    {
+      id: 15,
+      name: "boxing, punching bag",
+      met: 5.5,
+    },
+    {
+      id: 16,
+      name: "boxing, sparring",
+      met: 7.8,
+    },
+    {
+      id: 17,
+      name: "boxing, in ring",
+      met: 12.8,
+    },
+    {
+      id: 18,
+      name: "golf",
+      met: 4.8,
+    },
+    {
+      id: 19,
+      name: "hockey, ice",
+      met: 8.0,
+    },
+    {
+      id: 20,
+      name: "hockey, ice, competetive",
+      met: 10,
+    },
+    {
+      id: 21,
+      name: "hockey, field",
+      met: 7.8,
+    },
+    {
+      id: 22,
+      name: "lacrose",
+      met: 8.0,
+    },
+    {
+      id: 23,
+      name: "rock climbing",
+      met: 5.0,
+    },
+    {
+      id: 24,
+      name: "rope jumping, slow",
+      met: 8.8,
+    },
+    {
+      id: 25,
+      name: "rope jumping, medium",
+      met: 11.8,
+    },
+    {
+      id: 26,
+      name: "rope jumping, fast",
+      met: 12.3,
+    },
+    {
+      id: 27,
+      name: "rugby",
+      met: 7.0,
+    },
+    {
+      id: 28,
+      name: "football, casual",
+      met: 7.0,
+    },
+    {
+      id: 29,
+      name: "football, competetive",
+      met: 10,
+    },
+    {
+      id: 30,
+      name: "squash, general",
+      met: 7.3,
+    },
+    {
+      id: 31,
+      name: "squash, competetive",
+      met: 12,
+    },
+    
   ];
   //handle Calorie burn calculation
   let weightField;
