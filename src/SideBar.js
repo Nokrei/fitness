@@ -66,6 +66,7 @@ function ResponsiveDrawer(props) {
           on:'on'
         })
       : setGlobalState({
+          ...globalState,
           mode: "light",
           on:'off'
         });

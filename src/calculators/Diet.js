@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import AppContext from '../AppContext';
+import AppContext from "../AppContext";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import Typography from "@material-ui/core/Typography";
@@ -14,27 +14,27 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-
+import { PieChart } from "react-minimal-pie-chart";
 const Diet = () => {
-  const [globalState, setGlobalState] = useContext(AppContext)
+  const [globalState, setGlobalState] = useContext(AppContext);
   // Handle window size
   const { width } = useWindowDimensions();
 
   const [contentClass, setContentClass] = useState("");
   const [inputClass, setInputClass] = useState("");
-  const [tableStyle, setTableStyle] = useState({maxWidth:'32em'});
+  const [tableStyle, setTableStyle] = useState({ maxWidth: "32em" });
   useEffect(() => {
     if (width > 600) {
       setContentClass("content--wide");
       setInputClass("input--wide");
-      setTableStyle({maxWidth:'32em'});
-      setGlobalState({...globalState, fontSize:18})
+      setTableStyle({ maxWidth: "32em" });
+      setGlobalState({ ...globalState, fontSize: 18 });
     } else {
       setContentClass("content--narrow");
       setInputClass("input--narrow");
-      setTableStyle({...tableStyle, overflowY:'visible', maxWidth:'32em'});
-      setGlobalState({...globalState, fontSize:22})
-    } 
+      setTableStyle({ ...tableStyle, overflowY: "visible", maxWidth: "32em" });
+      setGlobalState({ ...globalState, fontSize: 22 });
+    }
   }, [width]);
 
   // Code for table
@@ -350,7 +350,15 @@ const Diet = () => {
 
     setRows((rows) => [...rows, calc]);
   };
-
+  const totalCalories = rows
+    .map((row) => row.calories)
+    .reduce((a, b) => a + b, 0);
+  const totalFat = rows.map((row) => row.fat).reduce((a, b) => a + b, 0);
+  const totalCarbs = rows.map((row) => row.carbs).reduce((a, b) => a + b, 0);
+  const totalProtein = rows
+    .map((row) => row.protein)
+    .reduce((a, b) => a + b, 0);
+  
   return (
     <div className={contentClass}>
       <Typography variant="h5">Diet Calculator</Typography>
@@ -396,47 +404,69 @@ const Diet = () => {
       </div>
       <br />
       <br />
-      <TableContainer component={Paper} style={tableStyle}>
+      <TableContainer component={Paper} style={tableStyle} className="dietTable">
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
-            <TableRow >
-              <TableCell style={{padding:'0.5em'}}>Meal</TableCell>
-              <TableCell style={{padding:'0.5em'}}align="right">Calories</TableCell>
-              <TableCell style={{padding:'0.5em'}}align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell style={{padding:'0.5em'}}align="right">Carbs&nbsp;(g)</TableCell>
-              <TableCell style={{padding:'0.5em'}}align="right">Protein&nbsp;(g)</TableCell>
+            <TableRow>
+              <TableCell style={{ padding: "0.5em" }}>Meal</TableCell>
+              <TableCell style={{ padding: "0.5em" }} align="right">
+                Calories
+              </TableCell>
+              <TableCell style={{ padding: "0.5em" }} align="right">
+                Fat&nbsp;(g)
+              </TableCell>
+              <TableCell style={{ padding: "0.5em" }} align="right">
+                Carbs&nbsp;(g)
+              </TableCell>
+              <TableCell style={{ padding: "0.5em" }} align="right">
+                Protein&nbsp;(g)
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.name} hover>
-                <TableCell style={{padding:'0.5em'}}component="th" scope="row">
+                <TableCell
+                  style={{ padding: "0.5em" }}
+                  component="th"
+                  scope="row"
+                >
                   {row.name}
                 </TableCell>
-                <TableCell style={{padding:'0.5em'}}align="right">{row.calories}</TableCell>
-                <TableCell style={{padding:'0.5em'}}align="right">{row.fat}</TableCell>
-                <TableCell style={{padding:'0.5em'}}align="right">{row.carbs}</TableCell>
-                <TableCell style={{padding:'0.5em'}}align="right">{row.protein}</TableCell>
+                <TableCell style={{ padding: "0.5em" }} align="right">
+                  {row.calories}
+                </TableCell>
+                <TableCell style={{ padding: "0.5em" }} align="right">
+                  {row.fat}
+                </TableCell>
+                <TableCell style={{ padding: "0.5em" }} align="right">
+                  {row.carbs}
+                </TableCell>
+                <TableCell style={{ padding: "0.5em" }} align="right">
+                  {row.protein}
+                </TableCell>
               </TableRow>
             ))}
             <TableRow hover>
-              <TableCell style={{padding:'0.5em'}}>Total</TableCell>
-              <TableCell style={{padding:'0.5em'}}align="right">
-                {rows.map((row) => row.calories).reduce((a, b) => a + b, 0)}
+              <TableCell style={{ padding: "0.5em" }}>Total</TableCell>
+              <TableCell style={{ padding: "0.5em" }} align="right" color='primary'>
+                {totalCalories}
               </TableCell>
-              <TableCell style={{padding:'0.5em'}}align="right">
-                {rows.map((row) => row.fat).reduce((a, b) => a + b, 0)}
+              <TableCell style={{ padding: "0.5em" }} align="right">
+                {totalFat}
               </TableCell>
-              <TableCell style={{padding:'0.5em'}}align="right">
-                {rows.map((row) => row.carbs).reduce((a, b) => a + b, 0)}
+              <TableCell style={{ padding: "0.5em" }} align="right">
+                {totalCarbs}
               </TableCell>
-              <TableCell style={{padding:'0.5em'}}align="right">
-                {rows.map((row) => row.protein).reduce((a, b) => a + b, 0)}
+              <TableCell style={{ padding: "0.5em" }} align="right">
+                {totalProtein}
               </TableCell>
             </TableRow>
           </TableBody>
         </Table>
       </TableContainer>
+      
+      
     </div>
   );
 };

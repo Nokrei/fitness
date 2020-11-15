@@ -65,6 +65,7 @@ body {
   margin-left: 24.4em;
   margin-right: 8em;
   text-align: justify;
+
 }
 .content--narrow {
   margin-top: 7em;
@@ -74,7 +75,8 @@ body {
 }
 .toolbar--wide{
   margin-top: -1.65em !important ;
-  margin-left: 0.8em !important
+  margin-left: 0.8em !important;
+  
 }
 .toolbar--narrow{
   margin-top: -1.21em !important ;
@@ -97,5 +99,6 @@ body {
   grid-template-columns:2fr 2fr 1fr
   
 }
+
 
 
