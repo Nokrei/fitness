@@ -142,7 +142,7 @@ const BodyFat = () => {
         internal organs in the chest and abdomen. A number of methods are
         available for determining body fat percentage, such as measurement with
         calipers or through the use of bioelectrical impedance analysis. This
-        application makes use of the calliper method. Use the device to grab
+        application makes use of the caliper method. Use the device to grab
         skinfolds in specific parts of the body (abdomen, triceps, thigh and
         suprailiac), then input the values (in mm) into the designated fields
         bellow.

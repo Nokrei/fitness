@@ -99,7 +99,7 @@ const Bmi = () => {
         &#40;weight&#41; and height of a person. The BMI is defined as the body
         mass divided by the square of the body height, and is universally
         expressed in units of kg/m2, resulting from mass in kilograms and height
-        in metres.The BMI is a convenient rule of thumb used to broadly
+        in meters.The BMI is a convenient rule of thumb used to broadly
         categorize a person as underweight, normal weight, overweight, or obese
         based on tissue mass &#40;muscle, fat, and bone&#41; and height.
         Commonly accepted BMI ranges are underweight &#40;under 18.5 kg/m2&#41;,

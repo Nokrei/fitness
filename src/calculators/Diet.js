@@ -363,7 +363,7 @@ const Diet = () => {
     <div className={contentClass}>
       <Typography variant="h5">Diet Calculator</Typography>
       <Typography variant="body1">
-        Use this calculator to estimate the calories and macronutriets of your
+        Use this calculator to estimate the calories and macronutrients of your
         meals.
       </Typography>
       <br />

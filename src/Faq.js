@@ -32,7 +32,7 @@ or increase calorie demand (do more exercise).
       />
       <MyAccordion
         question="Can I lose fat and build muscle at the same time?"
-        anwser="Short anwser: no. More elaborate answer: it depends. In early stages, when you just begin to work out it is possible to both loose fat and gain 
+        anwser="Short answer: no. More elaborate answer: it depends. In early stages, when you just begin to work out it is possible to both loose fat and gain 
 muscle. Your body is not accustomed to the exercise, it uses fat reserves for energy and your muscle mass increases so it can
 deal with the weights you are lifting. The human organism adjusts fast however and this stage does not last long. You need
 a calorie deficit to loose and a calorie surplus to gain weight, or you need to be an extremely knowledgeable individual with
